@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataForm Contexts="License.All" xmlns="http://www.enova.pl/schema/form.xsd">
+	<Grid Name="List" IsToolbarVisible="false">
+		<Field EditValue="{Naglowek.Kod}" Width="10" />
+		<Field EditValue="{Naglowek.Nazwa}" Width="30" />
+		<Field EditValue="{Typ}" Width="20" />
+	</Grid>
+</DataForm>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataForm xmlns="http://www.enova.pl/schema/form.xsd"
+          xsi:schemaLocation="http://www.enova.pl/schema/ http://www.enova.pl/schema/form.xsd"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          RightName="Page:TowarNapojePage"
+          Priority="10"
+          DataType="Soneta.Towary.Towar, Soneta.Handel">
+	<Page Name="TowarNapojePage" CaptionHtml="Napoje" DataContext="{new TowarNapojeExtender}" Visibility="{IsVisible}">
+		<Group CaptionHtml="Ustawienia dotyczące napojów">
+			<Field CaptionHtml="Czy towar jest napojem" EditValue="{CzyNapoj}" />
+			<Group CaptionHtml="Dane napoju" DataContext="{Napoj}">
+				<Field CaptionHtml="Kategoria" EditValue="{Kategoria}" Width="30" />
+				<Field CaptionHtml="Producent" EditValue="{Producent}" Width="30" />
+			</Group>
+		</Group>
+	</Page>
+</DataForm>
+

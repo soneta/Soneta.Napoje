@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DataForm xmlns="http://www.enova.pl/schema/form.xsd"
+          xsi:schemaLocation="http://www.enova.pl/schema/ http://www.enova.pl/schema/form.xsd"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          RightName="Page:NapojOgolnePage"
+          Priority="1">
+	<Page Name="NapojOgolnePage" CaptionHtml="Ogólne" DataContext="{DataSource}">
+		<Field CaptionHtml="Towar" EditValue="{Towar}" Width="40" />
+		<Field CaptionHtml="Kategoria" EditValue="{Kategoria}" Width="30" />
+		<Field CaptionHtml="Producent" EditValue="{Producent}" Width="30" />
+	</Page>
+</DataForm>
+

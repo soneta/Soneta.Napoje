@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Zawiera informację nagłówkową pliku XML oraz informację o użytym kodowaniu znaków. -->
+<module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+				xmlns="http://www.enova.pl/schema/business_struct.xsd"
+				xsi:schemaLocation="http://www.enova.pl/schema/ http://www.enova.pl/schema/business_struct.xsd"
+				name="Napoje" namespace="Soneta.Napoje" versionName="Napoje" versionNumber="1">
+  <!-- 
+		Główny element deklarujący nagłówek modułu. 
+  
+		xmlns - wszystkie elementy i atrybuty zostały zadeklarowane w xml-namespace http://www.enova.pl/schema/business_struct.xsd,
+		dlatego konieczne jest użycie atrybutu xmlns, który określa ten właśnie namespace.
+  
+		name - każdy moduł musi posiadać nazwę, która znajduje się w wymaganym atrybucie name. Nazwa ta wykorzystywana jest między
+		innymi do utworzenia odpowiednich nazw dla generowanych klas C#.
+  
+		versionName - kolejnym wymaganym atrybutem jest versionName. Określa nazwę numerów wersji (wersjonowania) pozwalających na
+		automatyczne generowanie konwersji bazy danych z baz utworzonych starszymi wersjami bibliotek. Nazwane numery wersji
+		pozwalają na niezależne prowadzenie projektów i wersjonowanie poszczególnych modułów. Standardowo nazwy wersji to system oraz
+		enova	użyte są przez program. Nazwa punktacja pozwala na wersjonowanie modułu niezależnie od wersji głównego programu.
+  
+		versionNumber - atrybut versionNumber określa numer wersji o danej nazwie. Liczba ta powinna być zwiększana zawsze, gdy
+		dokonujemy zmian w module, który został opublikowany publicznie i konieczna będzie konwersja. Taka sama wartość atrybutu
+		versionName może być przypisany wielu modułom. Ale wystarczy, że tylko jeden z nich będzie określał numer wersji atrybutem
+		versionNumber. 
+  -->
+
+	<!-- Deklaracje użycia namespaces, w których zdefiniowane są klasy używane w definiowanych ponżej tabelach -->
+	<using>Soneta.Handel</using>
+	<using>Soneta.Towary</using>
+
+	<!--
+		Definicja tabeli 'Napoje', zawierającej dane roszerzające dla kartoteki towarów
+		name - nazwa klasy biznesowej reprezentującej wiersz tabeli
+		tablename - nazwa tabeli w bazie danych, a jednocześnie klasy reprezentującej tabelę.
+		Obie klasy zostaną wygenerowane w business.cs jako <name>Row i <name>Table.
+		Klasy <name> i <tablename> należy utworzyć samodzielnie jako dziedziczące z powyższych wygenerowanych.
+	-->
+	<table name="Napoj" tablename="Napoje" guided="Root"
+				 caption="Napój" tablecaption="Napoje">
+
+		<col name="Towar" type="Towar" readonly="set"
+				 required="true" keyprimary="true" keyunique="true" delete="cascade"
+				 caption="Towar" description="Dodatkowe opcje kartoteki towaru dotyczące napojów"/>
+
+		<col name="Kategoria" type="KategoriaNapoju" required="true" caption="Kategoria napoju" />
+
+		<col name="Producent" type="ProducentNapoju" caption="Producent napoju" />
+
+	</table>
+
+	<!-- Rozszerzenie tabeli pozycji dokumentu handlowego zawierające informacje o naliczonej opłacie dla danej pozycji -->
+	<table name="OplataNapoju" tablename="OplatyNapojow" guided="Root"
+				 caption="Opłata napoju" tablecaption="Opłaty napojów">
+
+		<col name="Pozycja" type="PozycjaDokHandlowego" readonly="set"
+				 required="true" keyprimary="true" keyunique="true" delete="cascade"
+				 caption="Pozycja dokumentu handlowego"
+				 description="Dodatkowe opcje pozycji dokumentu handlowego dotyczące opłaty napojów" />
+
+		<col name="Kategoria" type="KategoriaNapoju" readonly="set" required="true" caption="Kategoria napoju" />
+		
+		<col name="Oplata" type="currency" readonly="set" caption="Naliczona opłata" />
+
+	</table>
+
+	<!-- Definiujemy zbiór kolumn, który będzie reużywany w różnych tabelach -->
+	<subrow name="Naglowek">
+		<key name="WgKodu" keyprimary="true" keyunique="true">
+			<keycol name="Kod" />
+		</key>
+		
+		<col name="Kod" type="string" length="10" required="true" />
+		
+		<col name="Nazwa" type="string" length="30" required="true" />
+		
+		<col name="Opis" type="string" length="80" />
+	</subrow>
+
+	<!-- Kategoria napoju zawiera informacje o tym ile należy doliczyć opłaty -->
+	<table name="KategoriaNapoju" tablename="KategorieNapoj" guided="Root"
+				 caption="Kategoria napoju" tablecaption="Kategorie napojów">
+
+		<col name="Naglowek" type="Naglowek" />
+
+		<!--
+			Dodajemy atrybut modifier oznaczający property jako virtual, przez co w zdefiniowanej przez nas klasie możemy
+			nadpisać zachowanie gettera bądź settera
+		-->
+		<col name="Zablokowany" type="boolean" modifier="public virtual" />
+
+		<!-- Kolumna opatrzona weryfikatorem -->
+		<col name="Oplata" type="percent">
+			<verifier name="KategoriaNapoju.OplataVerifier" />
+		</col>
+	</table>
+
+	<!--
+		Zadeklarowanie enuma którego definicja znajduje się w kodzie,
+		konieczne aby móc przypisać dany enum jako typ kolumny
+	-->
+	<enum name="TypProducentaNapoju" />
+	
+	<table name="ProducentNapoju" tablename="ProducenciNapoj" guided="Root"
+				 caption="Producent napoju" tablecaption="Producenci napojów">
+		
+		<col name="Naglowek" type="Naglowek" />
+	
+		<col name="Typ" type="TypProducentaNapoju" required="true" />
+	</table>
+</module>

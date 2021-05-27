@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+  Plik dbinit.xml tworzy w zakładanej bazie danych rekordy opisane poniżej tylko przy tworzeniu samych tabel.
+  Dodawanie ich później, kiedy tabele już istnieją - nie zostanie wykonane
+-->
+
+<session versionName="Napoje">
+
+	<Towar id="whisky" guid="{54E05180-F9AD-46E3-B937-E38FEC27C5BA}">
+		<Kod>WHISKY</Kod>
+		<Typ>Towar</Typ>
+		<Nazwa>Szkocka whisky</Nazwa>
+		<!-- jednostka litr -->
+		<Jednostka>00000000-0011-0007-0003-000000000000</Jednostka>
+		<DefinicjaStawki>00000000-0001-0003-0010-000000000000</DefinicjaStawki>
+		<DefinicjaStawkiZakupu>00000000-0001-0003-0010-000000000000</DefinicjaStawkiZakupu>
+	</Towar>
+
+	<Towar id="wino" guid="{212A1272-007B-4A39-AE4B-A4787886D7A2}">
+		<Kod>WINO</Kod>
+		<Typ>Towar</Typ>
+		<Nazwa>Greckie wino</Nazwa>
+		<Jednostka>00000000-0011-0007-0003-000000000000</Jednostka>
+		<DefinicjaStawki>00000000-0001-0003-0010-000000000000</DefinicjaStawki>
+		<DefinicjaStawkiZakupu>00000000-0001-0003-0010-000000000000</DefinicjaStawkiZakupu>
+	</Towar>
+
+	<Towar id="piwo" guid="{90F7C397-1A63-482C-8896-46306B600015}">
+		<Kod>PIWO</Kod>
+		<Typ>Towar</Typ>
+		<Nazwa>Polskie piwo</Nazwa>
+		<Jednostka>00000000-0011-0007-0003-000000000000</Jednostka>
+		<DefinicjaStawki>00000000-0001-0003-0010-000000000000</DefinicjaStawki>
+		<DefinicjaStawkiZakupu>00000000-0001-0003-0010-000000000000</DefinicjaStawkiZakupu>
+	</Towar>
+
+	<KategoriaNapoju id="wysokoprocentowe" guid="{2ADEF2AA-7D6D-426E-825E-05B694E72585}">
+		<Naglowek>
+			<Kod>ALKO_W</Kod>
+			<Nazwa>Napoje wysokoprocentowe</Nazwa>
+			<Opis>Napoje alkoholowe posiadające 15% lub więcej alkoholu</Opis>
+		</Naglowek>
+		<Oplata>15</Oplata>
+	</KategoriaNapoju>
+
+	<KategoriaNapoju id="srednioprocentowe" guid="{F4A1ACC8-3865-4965-83C4-5E62E79FA400}">
+		<Naglowek>
+			<Kod>ALKO_S</Kod>
+			<Nazwa>Napoje średnioprocentowe</Nazwa>
+			<Opis>Napoje alkoholowe posiadające więcej niż 6% oraz mniej niż 15% alkoholu</Opis>
+		</Naglowek>
+		<Oplata>10</Oplata>
+	</KategoriaNapoju>
+
+	<KategoriaNapoju id="niskoprocentowe" guid="{ED361AAD-7C74-4AD5-9B84-B68284633E8B}">
+		<Naglowek>
+			<Kod>ALKO_N</Kod>
+			<Nazwa>Napoje niskoprocentowe</Nazwa>
+			<Opis>Napoje alkoholowe posiadające nie mniej niż 0.5% oraz nie więcej niż 6% alkoholu</Opis>
+		</Naglowek>
+		<Oplata>5</Oplata>
+	</KategoriaNapoju>
+
+	<ProducentNapoju id="browar" guid="{12B32F28-44E6-4A12-9D99-06846FABB3C4}">
+		<Naglowek>
+			<Kod>BROWAR</Kod>
+			<Nazwa>Browar</Nazwa>
+			<Opis>Browar produkujący piwo</Opis>
+		</Naglowek>
+		<Typ>Opodatkowany</Typ>
+	</ProducentNapoju>
+
+	<Napoj guid="{563B23D7-9857-437F-AAE4-11B36473BE17}">
+		<Towar>whisky</Towar>
+		<Kategoria>wysokoprocentowe</Kategoria>
+	</Napoj>
+
+	<Napoj guid="{BA0CDB81-DA9A-4C6A-9656-6CAF0B264C7B}">
+		<Towar>wino</Towar>
+		<Kategoria>srednioprocentowe</Kategoria>
+	</Napoj>
+
+	<Napoj guid="{EAE58164-A3C9-4384-925D-727A9ECB7F0A}">
+		<Towar>piwo</Towar>
+		<Kategoria>niskoprocentowe</Kategoria>
+		<Producent>browar</Producent>
+	</Napoj>
+	
+</session>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Soneta.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(SonetaTargetFramework)</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Soneta.Napoje\Soneta.Napoje.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="ViewForm\Napoje.viewform.xml" />
+  </ItemGroup>
+</Project>
