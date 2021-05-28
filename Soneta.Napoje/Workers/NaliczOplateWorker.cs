@@ -74,6 +74,7 @@ namespace Soneta.Napoje
 
             private DefDokHandlowego definicja;
             [Priority(2)]
+            [Caption("Definicja dokumentu")]
             public DefDokHandlowego Definicja
             {
                 get => definicja;

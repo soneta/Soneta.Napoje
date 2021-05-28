@@ -19,7 +19,7 @@ using Soneta.Napoje.UI;
 [assembly: FolderView("Handel/Napoje/KategorieNapojow",
     Priority = 1,
     Description = "Kategorie napojów",
-    TableName = "KategorieNapojow",
+    TableName = "KategorieNapoj",
     ViewType = typeof(KategorieNapojowViewInfo),
     BrickColor = FolderViewAttribute.BlueBrick
 )]
@@ -27,7 +27,7 @@ using Soneta.Napoje.UI;
 [assembly: FolderView("Handel/Napoje/ProducenciNapojow",
     Priority = 2,
     Description = "Producenci napojów",
-    TableName = "ProducenciNapojow",
+    TableName = "ProducenciNapoj",
     ViewType = typeof(ProducenciNapojowViewInfo),
     BrickColor = FolderViewAttribute.BlueBrick,
     Icon = "Czlonkowie"

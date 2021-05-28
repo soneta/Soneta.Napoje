@@ -106,6 +106,6 @@
 		
 		<col name="Naglowek" type="Naglowek" />
 	
-		<col name="Typ" type="TypProducentaNapoju" required="true" />
+		<col name="Typ" type="TypProducentaNapoju" />
 	</table>
 </module>

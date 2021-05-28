@@ -1117,7 +1117,6 @@ namespace Soneta.Napoje {
 
 			public Naglowek Naglowek { get; } = new Naglowek();
 
-			[Required]
 			public TypProducentaNapoju Typ {
 				get {
 					if (record==null) GetRecord();
@@ -1125,7 +1124,6 @@ namespace Soneta.Napoje {
 				}
 				set {
 					ProducentNapojuSchema.TypBeforeEdit?.Invoke((ProducentNapoju)this, ref value);
-					if (((int)value)==0) throw new RequiredException(this, "Typ");
 					GetEdit(record==null, false);
 					record.Typ = value;
 					ProducentNapojuSchema.TypAfterEdit?.Invoke((ProducentNapoju)this);
@@ -1158,15 +1156,8 @@ namespace Soneta.Napoje {
 				return result;
 			}
 
-			class TypRequiredVerifier : RequiredVerifier {
-				internal TypRequiredVerifier(IRow row) : base(row, "Typ") {
-				}
-				protected override bool IsValid() => !(((int)((ProducentNapojuRow)Row).Typ)==0);
-			}
-
 			protected override void OnAdded() {
 				base.OnAdded();
-				Session.Verifiers.Add(new TypRequiredVerifier(this));
 				ProducentNapojuSchema.OnAdded?.Invoke((ProducentNapoju)this);
 			}
 
@@ -1203,7 +1194,6 @@ namespace Soneta.Napoje {
 
 		public sealed class ProducentNapojuRecord : GuidedRecord {
 			public NaglowekRecord Naglowek = new NaglowekRecord();
-			[Required]
 			public TypProducentaNapoju Typ;
 
 			public override Record Clone() {

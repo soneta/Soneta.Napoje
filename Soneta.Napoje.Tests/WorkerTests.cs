@@ -39,7 +39,6 @@ namespace Soneta.Napoje.Tests
 
             var naliczOplateWorker = new NaliczOplateWorker()
             {
-                Session = Session,
                 Params = new NaliczOplateWorker.NaliczOplateParams(Context)
                 {
                     Okres = FromTo.All
