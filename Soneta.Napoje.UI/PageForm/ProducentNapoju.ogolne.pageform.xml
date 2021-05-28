@@ -3,7 +3,7 @@
           xsi:schemaLocation="http://www.enova.pl/schema/ http://www.enova.pl/schema/form.xsd"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-					RightName="Page:ProducentNapojuOgolnePage"
+          RightName="Page:ProducentNapojuOgolnePage"
           Priority="1">
 	<Page Name="ProducentNapojuOgolnePage" CaptionHtml="Ogólne" DataContext="{DataSource}">
 		<Include Source="Naglowek.form.xml" DataContext="{Naglowek}" />

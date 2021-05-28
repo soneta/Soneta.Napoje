@@ -6,7 +6,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Soneta.Napoje\Soneta.Napoje.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="ViewForm\Napoje.viewform.xml" />
-  </ItemGroup>
 </Project>

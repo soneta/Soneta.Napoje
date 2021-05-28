@@ -18,9 +18,6 @@ namespace Soneta.Napoje
         [Context]
         public NaliczOplateParams Params { get; set; }
 
-        [Context]
-        public Session Session { get; set; }
-
         // Zarejstrowanie akcji na interfejsie użytkownika
         // Przycisk będzie widoczny w menu Czynności -> Napoje -> Opłata dla napojów
         // Parametr Mode służy do dodatkowej konfiguracji, np. Progress wyświetli nam okienko postępu podczas trwania akcji
@@ -36,12 +33,15 @@ namespace Soneta.Napoje
             if (Params.Definicja != null)
                 condition &= new FieldCondition.Equal("Dokument.Definicja", Params.Definicja);
 
-            using (var tran = Session.Logout(true))
+            var handelModule = Params.Session.GetHandel();
+            var napojeModule = Params.Session.GetNapoje();
+
+            using (var tran = Params.Session.Logout(true))
             {
                 // Aby wyciągnąć SubTable z tabeli PozycjeDokHan podajemy nazwę dowolnego klucza
-                foreach (var pozycja in HandelModule.GetInstance(Session).PozycjeDokHan.WgDaty[condition])
+                foreach (var pozycja in handelModule.PozycjeDokHan.WgDaty[condition])
                 {
-                    NapojeModule.GetInstance(pozycja).OplatyNapojow.NaliczOplate(pozycja);
+                    napojeModule.OplatyNapojow.NaliczOplate(pozycja);
                 }
                 tran.Commit();
             }

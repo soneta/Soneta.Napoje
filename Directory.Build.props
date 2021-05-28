@@ -3,6 +3,5 @@
   <PropertyGroup>
     <SonetaPackageVersion>2104.1.3</SonetaPackageVersion>
     <SonetaTargetFramework>net472</SonetaTargetFramework>
-		<SonetaAddonStartProgram>C:\Program Files (x86)\Soneta\enova365 2104.1.3.0\SonetaExplorer.exe</SonetaAddonStartProgram>
   </PropertyGroup>
 </Project>
