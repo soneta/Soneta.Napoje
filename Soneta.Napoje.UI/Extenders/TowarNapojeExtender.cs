@@ -27,18 +27,14 @@ namespace Soneta.Napoje.UI
             }
             set
             {
-                using (var t = Towar.Session.Logout(true))
+                if (value)
                 {
-                    if (value)
-                    {
-                        NapojeModule.GetInstance(Towar).Napoje.AddRow(new Napoj(Towar));
-                    }
-                    else
-                    {
-                        var napoj = NapojeModule.GetInstance(Towar).Napoje.WgTowar[Towar];
-                        if (napoj != null) napoj.Delete();
-                    }
-                    t.Commit();
+                    NapojeModule.GetInstance(Towar).Napoje.AddRow(new Napoj(Towar));
+                }
+                else
+                {
+                    var napoj = NapojeModule.GetInstance(Towar).Napoje.WgTowar[Towar];
+                    if (napoj != null) napoj.Delete();
                 }
             }
         }

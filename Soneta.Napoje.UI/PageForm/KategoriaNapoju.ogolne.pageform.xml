@@ -3,9 +3,8 @@
           xsi:schemaLocation="http://www.enova.pl/schema/ http://www.enova.pl/schema/form.xsd"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-          RightName="Page:KategoriaNapojuOgolnePage"
           Priority="1">
-	<Page Name="KategoriaNapojuOgolnePage" CaptionHtml="Ogólne" DataContext="{DataSource}">
+	<Page CaptionHtml="Ogólne" DataContext="{DataSource}">
 		<Include Source="Naglowek.form.xml" DataContext="{Naglowek}" />
 		<Field CaptionHtml="Blokada" EditValue="{Zablokowany}" />
 		<Field CaptionHtml="Opłata" EditValue="{Oplata}" Width="10" />

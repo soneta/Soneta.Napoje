@@ -39,7 +39,7 @@
 	<table name="Napoj" tablename="Napoje" guided="Root"
 				 caption="Napój" tablecaption="Napoje">
 
-		<col name="Towar" type="Towar" readonly="set"
+		<col name="Towar" type="Towar" readonly="true"
 				 required="true" keyprimary="true" keyunique="true" delete="cascade"
 				 caption="Towar" description="Dodatkowe opcje kartoteki towaru dotyczące napojów"/>
 
@@ -53,12 +53,12 @@
 	<table name="OplataNapoju" tablename="OplatyNapojow" guided="Root"
 				 caption="Opłata napoju" tablecaption="Opłaty napojów">
 
-		<col name="Pozycja" type="PozycjaDokHandlowego" readonly="set"
+		<col name="Pozycja" type="PozycjaDokHandlowego" readonly="true"
 				 required="true" keyprimary="true" keyunique="true" delete="cascade"
 				 caption="Pozycja dokumentu handlowego"
 				 description="Dodatkowe opcje pozycji dokumentu handlowego dotyczące opłaty napojów" />
 
-		<col name="Kategoria" type="KategoriaNapoju" readonly="set" required="true" caption="Kategoria napoju" />
+		<col name="Kategoria" type="KategoriaNapoju" readonly="true" required="true" caption="Kategoria napoju" />
 		
 		<col name="Oplata" type="currency" readonly="set" caption="Naliczona opłata" />
 

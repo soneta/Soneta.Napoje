@@ -3,16 +3,4 @@
   <PropertyGroup>
     <TargetFramework>$(SonetaTargetFramework)</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <None Update="Napoje - Copy.business.xml">
-      <PackagePath>schema\%(Filename)%(Extension)</PackagePath>
-      <Generator>BusinessGenerator</Generator>
-    </None>
-    <None Update="Napoje.business.xml">
-      <Generator>BusinessGenerator</Generator>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="Napoje.dbinit.xml" />
-  </ItemGroup>
 </Project>

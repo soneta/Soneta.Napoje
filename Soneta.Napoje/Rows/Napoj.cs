@@ -10,13 +10,12 @@ namespace Soneta.Napoje
     // W tym pliku definiujemy klasę pośrednią dla wiersza tabeli
     public class Napoj : NapojeModule.NapojRow
     {
-        internal Napoj()
+        internal Napoj(RowCreator creator) : base(creator)
         {
         }
 
-        public Napoj(Towar towar)
+        public Napoj(Towar towar) : base(towar)
         {
-            baseTowar = towar;
         }
 
         public View GetListKategoria()

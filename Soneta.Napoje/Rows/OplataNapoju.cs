@@ -11,14 +11,12 @@ namespace Soneta.Napoje
     // W tym pliku definiujemy klasę pośrednią dla wiersza tabeli
     public class OplataNapoju : NapojeModule.OplataNapojuRow
     {
-        internal OplataNapoju()
+        internal OplataNapoju(RowCreator creator) : base(creator)
         {
         }
 
-        public OplataNapoju(PozycjaDokHandlowego pozycja, KategoriaNapoju kategoria)
+        public OplataNapoju(PozycjaDokHandlowego pozycja, KategoriaNapoju kategoria) : base(pozycja, kategoria)
         {
-            basePozycja = pozycja;
-            baseKategoria = kategoria;
         }
 
         public void NaliczOplate()

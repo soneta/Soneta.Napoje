@@ -23,8 +23,8 @@ namespace Soneta.Napoje
         // Parametr Mode służy do dodatkowej konfiguracji, np. Progress wyświetli nam okienko postępu podczas trwania akcji
         // natomiast SingleSession oznacza, że dana akcja będzie wywołana w ramach istniejącej sesji
         // ConfirmFinished wyświetli nam informację po zakończeniu akcji
-        [Action("Napoje/Nalicz opłatę" +
-            " dla napojów", Mode = ActionMode.SingleSession | ActionMode.Progress | ActionMode.ConfirmFinished)]
+        [Action("Napoje/Nalicz opłatę dla napojów",
+            Mode = ActionMode.SingleSession | ActionMode.Progress | ActionMode.ConfirmFinished)]
         public void NaliczOplate()
         {
             var condition = new FieldCondition.GreaterEqual("Dokument.Data", Params.Okres.From) &
