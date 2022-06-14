@@ -12,7 +12,7 @@ using System.Reflection;
 namespace Soneta.Napoje.Tests
 {
     // Wykorzystanie istniejącej bazy danych, atrybut nie jest wymagany, bez niego zostanie wykorzystana baza nunit:default
-    [TestDatabase("GeekOut")]
+    // [TestDatabase("GeekOut")]
     class WorkerTests : TestBase
     {
         public override void ClassSetup()
