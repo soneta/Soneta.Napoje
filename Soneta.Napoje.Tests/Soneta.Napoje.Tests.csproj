@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Soneta.Sdk">
   <PropertyGroup>
-    <TargetFramework>$(SonetaTargetFramework)</TargetFramework>
+    <TargetFramework>$(SonetaTestsTargetFramework)</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Soneta.Napoje\Soneta.Napoje.csproj" />
   </ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="ElzabWrapper.bySoneta" Version="1.0.0"/>
+		<PackageReference Include="ElzabWrapper.bySoneta" Version="2.0.0"/>
 	</ItemGroup>
 </Project>
