@@ -7,7 +7,9 @@ using Soneta.Test;
 using Soneta.Towary;
 using Soneta.Types;
 using System;
-using System.Reflection;
+
+// Rejestracja assembly dodatku w loaderze testów - bez tego moduł Napoje nie jest widoczny przy zakładaniu bazy
+[assembly: TestReference("Soneta.Napoje")]
 
 namespace Soneta.Napoje.Tests
 {
@@ -15,13 +17,6 @@ namespace Soneta.Napoje.Tests
     // [TestDatabase("GeekOut")]
     class WorkerTests : TestBase
     {
-        public override void ClassSetup()
-        {
-            // Konieczne jest wczytanie assembly dodatku
-            Assembly.Load("Soneta.Napoje");
-            base.ClassSetup();
-        }
-
         // Przygotowanie bazy przed każdym testem
         // Opłata będzie naliczana dla dokumentów rozchodu, dlatego wcześniej musimy przyjąć na magazyn
         // odpowiednie towary dokumentami przychodu
@@ -51,9 +46,9 @@ namespace Soneta.Napoje.Tests
                 Pozycja = dokument.PozycjaWgIdent(1)
             };
             var niskoprocentowe = Session.GetNapoje().KategorieNapoj.NaglowekWgKodu["ALKO_N"];
-            Assert.AreEqual(niskoprocentowe, oplataNapojuWorker.Kategoria);
+            Assert.That(oplataNapojuWorker.Kategoria, Is.EqualTo(niskoprocentowe));
             // 5% * 10 PLN => 0.5 PLN
-            Assert.AreEqual(new Currency(0.5), oplataNapojuWorker.Oplata);
+            Assert.That(oplataNapojuWorker.Oplata, Is.EqualTo(new Currency(0.5)));
         }
 
         private Guid NowyDokument(string definicja, string kodTowaru, Quantity ilosc, DoubleCy cena)

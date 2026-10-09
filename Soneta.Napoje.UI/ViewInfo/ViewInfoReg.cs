@@ -5,7 +5,7 @@ using Soneta.Napoje.UI;
     Caption = "Napoje", // niewymagane - Tytuł, jeśli nie podane, pobrane będzie ze ścieżki powyżej
     Priority = 0, // opcjonalne: Im mniejsza wartość, tym większy priorytet
     Description = "Moduł dotyczący napojów", // opcjonalne: Opis poniżej tytułu kafla
-    BrickColor = FolderViewAttribute.GreenBrick // opcjonalne: Kolor kafla
+    IconName = "towar" // opcjonalne: nazwa ikonki
 )]
 
 [assembly: FolderView("Handel/Napoje/Napoje",
@@ -13,7 +13,7 @@ using Soneta.Napoje.UI;
     Description = "Towary oznaczone jako napoje",
     TableName = "Napoje", // Tabela, której widok będzie prezentowany
     ViewType = typeof(NapojeViewInfo), // ViewInfo, które będzie użyte do wyświetlenia listy
-    BrickColor = FolderViewAttribute.BlueBrick
+    IconName = "towar"
 )]
 
 [assembly: FolderView("Handel/Napoje/KategorieNapojow",
@@ -21,7 +21,7 @@ using Soneta.Napoje.UI;
     Description = "Kategorie napojów",
     TableName = "KategorieNapoj",
     ViewType = typeof(KategorieNapojowViewInfo),
-    BrickColor = FolderViewAttribute.BlueBrick
+    IconName = "towar"
 )]
 
 [assembly: FolderView("Handel/Napoje/ProducenciNapojow",
@@ -29,6 +29,5 @@ using Soneta.Napoje.UI;
     Description = "Producenci napojów",
     TableName = "ProducenciNapoj",
     ViewType = typeof(ProducenciNapojowViewInfo),
-    BrickColor = FolderViewAttribute.BlueBrick,
-    Icon = "Czlonkowie"
+    IconName = "towar"
 )]

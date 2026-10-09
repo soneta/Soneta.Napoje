@@ -86,5 +86,29 @@
 		<Kategoria>niskoprocentowe</Kategoria>
 		<Producent>browar</Producent>
 	</Napoj>
-	
+
+	<!--
+		W Rozszerzonym Systemie Praw (obowiązkowym od wersji 2604) wszystko, czego rola wprost nie nadaje, jest zabronione.
+		Systemowa rola "Pełny dostęp do programu" nie obejmuje gałęzi Dodatki, dlatego zakładamy rolę z prawami
+		do tabel dodatku i dołączamy ją do operatora Administrator (prawa z ról operatora są łączone)
+	-->
+	<SystemRole guid="{3F6C2A1E-8B4D-4E7A-9C25-6D1B0E9A7F43}">
+		<Name>Napoje - pełny dostęp</Name>
+		<RoleText>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Role xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Guid="3f6c2a1e-8b4d-4e7a-9c25-6d1b0e9a7f43" Name="Napoje - pełny dostęp" Mode="Advanced"&gt;
+  &lt;Right Name="Rights"&gt;
+    &lt;Right Name="Dodatki"&gt;
+      &lt;Right Name="Napoje" AccessRight="Granted" /&gt;
+    &lt;/Right&gt;
+  &lt;/Right&gt;
+  &lt;Description&gt;Pełny dostęp do danych dodatku Napoje&lt;/Description&gt;
+&lt;/Role&gt;</RoleText>
+		<Entitles>
+			<!-- Administrator -->
+			<EntitleRef>
+				<Entitle>00000000-0015-0001-0001-000000000000</Entitle>
+			</EntitleRef>
+		</Entitles>
+	</SystemRole>
+
 </session>
